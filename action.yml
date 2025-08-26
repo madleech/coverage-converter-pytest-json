@@ -1,0 +1,21 @@
+name: 'Pytest JSON Coverage Converter'
+description: 'Converts Pytest JSON code coverage result files into a simplified JSON format'
+author: 'Michael Adams'
+
+inputs:
+  coverage-file:
+    description: 'Shell glob to the JSON file(s) containing coverage data'
+    required: false
+    default: 'coverage.json'
+  remove-prefix:
+    description: 'Common prefix to remove from filenames to convert from absolute paths to relative paths'
+    required: false
+    default: 'github_workspace'
+
+outputs:
+  coverage-file:
+    description: 'Coverage data converted to plain JSON format'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
